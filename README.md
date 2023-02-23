@@ -13,8 +13,8 @@ utils
 The utils object contains various utility functions that can be used throughout the application. It has the following properties:
 
  - `jwt`: An object that provides JSON Web Token functionality.
- - nanoid(size: number): A function that generates a unique ID of a specified length.
- - QRCode.toDataURL(text: string): A function that generates a QR code image from a given text.
+ - `nanoid`(size: number): A function that generates a unique ID of a specified length.
+ - `QRCode.toDataURL(text: string)`: A function that generates a QR code image from a given text.
 
 ## `sdk`
 > The sdk object contains functions that can be used to interact with the application. It has the following properties:
