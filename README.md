@@ -12,6 +12,35 @@ https://waas.w3bstream.com/
 
 ### `input`: An object containing all input parameters passed to the application, including the request body.
 
+> If you want to pass data from one node to the next node, you need to return updated ctx *input* object, e.g:
+```javascript
+// Step 1: call external api
+const res = await axios.get('https://weather/api/temperature');
+
+// Step 2: extract required data and pass it to the next node
+return {
+    ...ctx.input,
+    temperature: res?.data?.temperature || 0
+}
+```
+
+> This way ctx will preserve the initial request body. In the following connected node we can access the data as follows:
+```javascript
+const { body: { user }, temperature } = ctx.input
+
+if (temperature > 20 && !!user) {
+  sdk.mintNFT({
+    chainId: 4690,
+    contract_address: "0xE4411Cf1371d1B64E82981189A963f97e563dA62",
+    receiver: user
+  })
+  return { ...ctx.input, success: true }
+} 
+
+return { ...ctx.input, success: false }
+```
+
+
 ## `utils`
 
 > The utils object contains various utility functions that can be used throughout the application. It has the following properties:
