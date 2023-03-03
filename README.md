@@ -46,6 +46,12 @@ https://waas.w3bstream.com/
 - receiver: A string representing the address of the recipient of the NFT.
 - chainId: A number representing the ID of the blockchain to use.
 
+### `env`
+> The env object contains information about the application's current environment variables. It has the following properties:
+
+#### `get`(key: string): A function that gets the value of an environment variable by its object property name.
+- key: A string which is the property name of the environment variable object.
+
 ## axios
 
 > The axios object provides functionality for making HTTP requests. It has the following properties:
